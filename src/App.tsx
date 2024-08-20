@@ -1,24 +1,60 @@
-import { useEffect } from 'react';
-import { useDispatch, useSelector } from './services/store';
-import { getCatsSelector, getCatsThunk } from './services/cats-slice';
-import { CardList } from './components';
-import styles from './styles.module.css';
+import {
+	createBrowserRouter,
+	RouterProvider,
+	ScrollRestoration,
+} from 'react-router-dom';
+import Layout from './layout';
+import { FC, useEffect } from 'react';
+import { useDispatch } from './services/store';
+import { getCatsThunk } from './services/cats-slice';
 
-const App = () => {
+const router = createBrowserRouter([
+	{
+		element: (
+			<>
+				<ScrollRestoration
+					getKey={(location) => {
+						const paths = '/cats/';
+						return paths === location.pathname
+							? location.pathname
+							: location.key;
+					}}
+				/>
+				<Layout />
+			</>
+		),
+		children: [
+			{
+				path: '/cats/',
+				children: [
+					{
+						index: true,
+						lazy: async () => {
+							const { MainPage } = await import('./pages');
+							return { Component: MainPage };
+						},
+					},
+					{
+						path: ':id',
+						lazy: async () => {
+							const { InfoCatPage } = await import('./pages');
+							return { Component: InfoCatPage };
+						},
+					},
+				],
+			},
+		],
+	},
+]);
+
+const App: FC = () => {
 	const dispatch = useDispatch();
-	const cats = useSelector(getCatsSelector);
 
 	useEffect(() => {
 		dispatch(getCatsThunk());
 	}, []);
 
-	return (
-		<div className={styles.content}>
-			<main className={styles.main}>
-				<CardList items={cats} />
-			</main>
-		</div>
-	);
+	return <RouterProvider router={router} />;
 };
 
 export default App;

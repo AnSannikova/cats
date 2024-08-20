@@ -4,9 +4,8 @@ type TBreed = {
 	description: string;
 	temperament: string;
 	origin: string;
-	lifeSpan: string;
-	wikipediaUrl: string;
-	vetStreetUrl: string;
+	life_span: string;
+	wikipedia_url: string;
 };
 
 export type TCat = {

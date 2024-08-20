@@ -8,6 +8,7 @@ const CardList: FC<TCardList> = ({ items }) => (
 		{items.map((item) => (
 			<li key={item.id}>
 				<Card
+					id={item.id}
 					imgSrc={item.url}
 					name={item.breeds[0].name}
 					description={item.breeds[0].description}
