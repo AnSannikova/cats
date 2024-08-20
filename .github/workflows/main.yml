@@ -1,6 +1,5 @@
 name: Deploy static content to Pages
 on:
-
   push:
     branches: ['main']
   workflow_dispatch:
@@ -11,7 +10,6 @@ permissions:
   id-token: write
 
 jobs:
-
   deploy:
     runs-on: ubuntu-latest
     steps:
@@ -26,8 +24,8 @@ jobs:
         run: npm ci
       - name: Build
         run: npm run build
-        env: 
-          VITE_X_API_KEY: ${{ secrets.VITE_X_API_KEY }}
+        env:
+          VITE_X_API_KEY: ${{ variables.VITE_X_API_KEY }}
       - name: Setup Pages
         uses: actions/configure-pages@v4
       - name: Upload artifact
