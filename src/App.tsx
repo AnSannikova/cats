@@ -1,23 +1,23 @@
-import { useEffect, useState } from 'react';
-import { getCats } from './services/cat-api';
-import { Image } from '@thatapicompany/thecatapi/dist/types';
+import { useEffect } from 'react';
+import { useDispatch, useSelector } from './services/store';
+import { getCatsSelector, getCatsThunk } from './services/cats-slice';
+import { CardList } from './components';
+import styles from './styles.module.css';
 
 const App = () => {
-	const [cats, setCats] = useState<null | Image[]>(null);
+	const dispatch = useDispatch();
+	const cats = useSelector(getCatsSelector);
 
 	useEffect(() => {
-		getCats()
-			.then((catsItem) => setCats(catsItem))
-			.catch((error) => console.log(error));
+		dispatch(getCatsThunk());
 	}, []);
+
 	return (
-		<>
-			<ul>
-				{cats?.map((item) => (
-					<li key={item.id}>{item.url}</li>
-				))}
-			</ul>
-		</>
+		<div className={styles.content}>
+			<main className={styles.main}>
+				<CardList items={cats} />
+			</main>
+		</div>
 	);
 };
 

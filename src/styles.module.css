@@ -1,0 +1,13 @@
+.main {
+	max-width: 1600px;
+	margin: 0 auto;
+	padding-block: 50px;
+	font-family: Jost, sans-serif;
+	font-variation-settings: 'wght' 400;
+	color: #292f36;
+}
+
+.content {
+	background-image: linear-gradient(135deg, #e9b9cf 0%, #d3f3f1 100%);
+	background-attachment: fixed;
+}

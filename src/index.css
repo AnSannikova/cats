@@ -1,4 +1,12 @@
+@import './fonts/fonts.css';
+
 /* Отключаем браузерные дефолтные стили для всех элементов */
+
+*,
+*::after,
+*::before {
+	box-sizing: border-box;
+}
 
 html,
 div,

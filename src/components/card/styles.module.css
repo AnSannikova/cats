@@ -1,0 +1,44 @@
+.card {
+	width: 100%;
+	padding: 20px 15px;
+	border-radius: 15px;
+	border: 2px solid transparent;
+	box-shadow: 4px 4px 22px 0px rgba(34, 60, 80, 0.2);
+	background-color: #fff;
+	cursor: pointer;
+	transition: border-color 0.15s ease-in-out;
+}
+
+.card:hover {
+	border-color: #1481ba;
+	transition: border-color 0.3s ease-in-out;
+}
+
+.imageWrapper {
+	aspect-ratio: 1.3 / 1;
+	width: 100%;
+	margin-block-end: 15px;
+}
+
+.image {
+	display: block;
+	width: 100%;
+	height: 100%;
+	object-fit: cover;
+	object-position: center;
+}
+
+.title {
+	font-variation-settings: 'wght' 700;
+	font-size: 22px;
+	margin-block-end: 10px;
+}
+
+.text {
+	font-size: 18px;
+	line-height: 1.2;
+	display: -webkit-box;
+	-webkit-box-orient: vertical;
+	-webkit-line-clamp: 3;
+	overflow: hidden;
+}
