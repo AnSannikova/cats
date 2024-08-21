@@ -1,4 +1,4 @@
-type TBreed = {
+export type TBreed = {
 	id: string;
 	name: string;
 	description: string;
@@ -11,5 +11,6 @@ type TBreed = {
 export type TCat = {
 	id: string;
 	url: string;
-	breeds: TBreed[];
+	breeds: TBreed;
+	isLike: boolean;
 };

@@ -1,5 +1,4 @@
-import { TUrlOptions } from './types';
-import { TCat } from '../types';
+import { TUrlOptions, TCatResponse } from './types';
 
 const config = {
 	apiKey: import.meta.env.VITE_X_API_KEY,
@@ -43,5 +42,5 @@ const request = async <T>(endpoint: string): Promise<T> => {
 };
 
 export const getCatsApi = () => {
-	return request<TCat[]>(`/images/search?${endpoint(urlOptions)}`);
+	return request<TCatResponse[]>(`/images/search?${endpoint(urlOptions)}`);
 };

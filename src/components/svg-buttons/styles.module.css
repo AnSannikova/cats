@@ -1,0 +1,15 @@
+.button {
+	border: none;
+	background-color: transparent;
+	padding: 0;
+	transition: transform 0.2s ease-in-out;
+}
+
+.svg {
+	cursor: pointer;
+}
+
+.button:hover {
+	transform: scale(1.08);
+	transition: transform 0.2s ease-in-out;
+}

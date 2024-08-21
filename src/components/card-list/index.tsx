@@ -10,8 +10,9 @@ const CardList: FC<TCardList> = ({ items }) => (
 				<Card
 					id={item.id}
 					imgSrc={item.url}
-					name={item.breeds[0].name}
-					description={item.breeds[0].description}
+					name={item.breeds.name}
+					description={item.breeds.description}
+					isLike={item.isLike}
 				/>
 			</li>
 		))}

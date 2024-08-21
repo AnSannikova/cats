@@ -1,4 +1,4 @@
-import { createAsyncThunk, createSlice } from '@reduxjs/toolkit';
+import { createAsyncThunk, createSlice, PayloadAction } from '@reduxjs/toolkit';
 import { getCatsApi } from '../api/cats-api';
 import { TCat } from '../types';
 
@@ -21,7 +21,21 @@ export const getCatsThunk = createAsyncThunk('cats/getCats', async () =>
 const catsSlice = createSlice({
 	name: 'cats',
 	initialState,
-	reducers: {},
+	reducers: {
+		likeItem: (
+			state,
+			action: PayloadAction<{ id: string; isLike: boolean }>
+		) => {
+			state.items = state.items.map((item) => {
+				return item.id === action.payload.id
+					? { ...item, isLike: !action.payload.isLike }
+					: item;
+			});
+		},
+		removeItem: (state, action: PayloadAction<string>) => {
+			state.items = state.items.filter((item) => item.id !== action.payload);
+		},
+	},
 	selectors: {
 		getCatsSelector: (state) => state.items,
 		getLoadingSelector: (state) => state.loading,
@@ -38,10 +52,15 @@ const catsSlice = createSlice({
 			})
 			.addCase(getCatsThunk.fulfilled, (state, action) => {
 				state.loading = false;
-				state.items = [...action.payload];
+				state.items = [
+					...action.payload.map((item) => {
+						return { ...item, breeds: item.breeds[0], isLike: false };
+					}),
+				];
 			});
 	},
 });
 
 export const catsReducer = catsSlice.reducer;
 export const { getCatsSelector, getLoadingSelector } = catsSlice.selectors;
+export const { likeItem, removeItem } = catsSlice.actions;

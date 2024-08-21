@@ -3,4 +3,5 @@ export type TCard = {
 	name: string;
 	imgSrc: string;
 	description: string;
+	isLike: boolean;
 };
