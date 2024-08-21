@@ -1,6 +1,12 @@
+.wrapper {
+	display: flex;
+	align-items: center;
+	gap: 50px;
+	margin-block-end: 30px;
+}
+
 .title {
 	font-size: 34px;
 	line-height: 1.4;
 	font-variation-settings: 'wght' 700;
-	margin-block-end: 30px;
 }

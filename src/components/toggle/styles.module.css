@@ -1,0 +1,49 @@
+.toggle {
+	position: relative;
+	display: flex;
+	align-items: center;
+	gap: 10px;
+	cursor: pointer;
+}
+
+.toggle::before {
+	content: '';
+	display: block;
+	min-height: 31px;
+	min-width: 50px;
+	border: solid 1px #eff2f3;
+	transition: background-color 0.3s ease-in-out, border-color 0.3s ease-in-out;
+	border-radius: 15px;
+	cursor: pointer;
+}
+
+.notChecked .toggle::before {
+	background-color: #ece5f0;
+}
+
+.checked .toggle::before {
+	background-color: #91d8d3;
+}
+
+.toggle::after {
+	content: '';
+	position: absolute;
+	left: 2px;
+	top: 2px;
+	bottom: 2px;
+	width: 27px;
+	height: 27px;
+	border-radius: 50%;
+	display: block;
+	background: #fff;
+	transition: margin-left 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
+	box-shadow: 0 0 2px rgba(0, 0, 0, 0.2), 0 0 5px rgba(0, 0, 0, 0.05);
+}
+
+.notChecked .toggle::after {
+	margin-left: 0;
+}
+
+.checked .toggle::after {
+	margin-left: 19px;
+}
