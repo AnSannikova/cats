@@ -1,0 +1,22 @@
+.link {
+	display: flex;
+	gap: 6px;
+	font-variation-settings: 'wght' 600;
+	transition: opacity 0.2s ease-in-out;
+}
+
+.link:hover {
+	opacity: 0.9;
+	transition: opacity 0.2s ease-in-out;
+}
+
+.image {
+	display: block;
+	width: 26px;
+	transition: transform 0.2s ease-in-out;
+}
+
+.link:hover .image {
+	transform: rotate(45deg);
+	transition: transform 0.2s ease-in-out;
+}

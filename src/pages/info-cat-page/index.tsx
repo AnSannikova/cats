@@ -2,14 +2,14 @@ import { FC } from 'react';
 import { useNavigate, useParams } from 'react-router-dom';
 import { useSelector } from '../../services/store';
 import { getCatsSelector } from '../../services/cats-slice';
-import { BackButton } from '../../components';
+import { BackButton, WikiLink } from '../../components';
 import styles from './styles.module.css';
 
 const InfoCatPage: FC = () => {
 	const { id } = useParams();
+	const navigate = useNavigate();
 	const cat = useSelector(getCatsSelector).find((item) => item.id === id);
 	const breed = cat?.breeds;
-	const navigate = useNavigate();
 
 	const onButtonClick = () => {
 		navigate(-1);
@@ -39,6 +39,7 @@ const InfoCatPage: FC = () => {
 						{breed?.life_span} years
 					</p>
 					<p>{breed?.description}</p>
+					{breed && <WikiLink url={breed.wikipedia_url} />}
 				</div>
 			</section>
 		</div>
