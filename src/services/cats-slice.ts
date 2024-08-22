@@ -4,12 +4,14 @@ import { TCat } from '../types';
 
 type TCatsState = {
 	items: TCat[] | [];
+	onlyLiked: boolean;
 	loading: boolean;
 	error: string | null | undefined;
 };
 
 const initialState: TCatsState = {
 	items: [],
+	onlyLiked: false,
 	loading: false,
 	error: null,
 };
@@ -35,10 +37,14 @@ const catsSlice = createSlice({
 		removeItem: (state, action: PayloadAction<string>) => {
 			state.items = state.items.filter((item) => item.id !== action.payload);
 		},
+		setOnlyLiked: (state, action: PayloadAction<boolean>) => {
+			state.onlyLiked = action.payload;
+		},
 	},
 	selectors: {
 		getCatsSelector: (state) => state.items,
 		getLoadingSelector: (state) => state.loading,
+		getOnyLikedSelector: (state) => state.onlyLiked,
 	},
 	extraReducers: (builder) => {
 		builder
@@ -62,5 +68,6 @@ const catsSlice = createSlice({
 });
 
 export const catsReducer = catsSlice.reducer;
-export const { getCatsSelector, getLoadingSelector } = catsSlice.selectors;
-export const { likeItem, removeItem } = catsSlice.actions;
+export const { getCatsSelector, getLoadingSelector, getOnyLikedSelector } =
+	catsSlice.selectors;
+export const { likeItem, removeItem, setOnlyLiked } = catsSlice.actions;

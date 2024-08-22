@@ -1,19 +1,25 @@
-import { FC, useState } from 'react';
-import { useSelector } from '../../services/store';
-import { getCatsSelector, getLoadingSelector } from '../../services/cats-slice';
+import { FC } from 'react';
+import { useSelector, useDispatch } from '../../services/store';
+import {
+	getCatsSelector,
+	getLoadingSelector,
+	getOnyLikedSelector,
+	setOnlyLiked,
+} from '../../services/cats-slice';
 import { CardList, Loader, Toggle } from '../../components';
 import styles from './styles.module.css';
 
 const MainPage: FC = () => {
 	const cats = useSelector(getCatsSelector);
 	const isLoading = useSelector(getLoadingSelector);
-	const [isToggleChecked, setIsToggleChecked] = useState(false);
+	const isOnlyLiked = useSelector(getOnyLikedSelector);
+	const dispatch = useDispatch();
 
 	const onToggleClick = () => {
-		setIsToggleChecked(!isToggleChecked);
+		dispatch(setOnlyLiked(!isOnlyLiked));
 	};
 
-	const items = isToggleChecked
+	const items = isOnlyLiked
 		? cats.filter((item) => item.isLike === true)
 		: cats;
 
@@ -23,7 +29,7 @@ const MainPage: FC = () => {
 				<h1 className={styles.title}>Random Cats</h1>
 				<Toggle
 					disabled={isLoading}
-					isChecked={isToggleChecked}
+					isChecked={isOnlyLiked}
 					onClick={onToggleClick}
 				/>
 			</div>
@@ -35,7 +41,9 @@ const MainPage: FC = () => {
 			{items.length > 0 ? (
 				<CardList items={items} />
 			) : (
-				<h2 className={styles.subtitle}>You haven't put any likes yet</h2>
+				!isLoading && (
+					<h2 className={styles.subtitle}>You haven't put any likes yet</h2>
+				)
 			)}
 		</>
 	);
