@@ -6,6 +6,15 @@
 	box-sizing: border-box;
 }
 
+html {
+	scrollbar-gutter: stable;
+}
+
+body {
+	scrollbar-gutter: stable;
+	margin: 0;
+}
+
 html,
 div,
 span,
