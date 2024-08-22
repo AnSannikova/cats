@@ -1,12 +1,19 @@
 .page {
 	display: flex;
-	gap: 30px;
+	flex-direction: column;
+	gap: 20px;
 	font-size: 20px;
 	line-height: 1.2;
 }
 
+.content {
+	display: grid;
+	grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+	gap: 30px;
+}
+
 .image {
-	width: 45%;
+	width: 100%;
 	max-height: 80dvh;
 	object-fit: cover;
 	object-position: 20% 20%;
@@ -14,14 +21,13 @@
 }
 
 .textWrapper {
-	width: 55%;
 	display: flex;
 	flex-direction: column;
 	gap: 20px;
 }
 
 .title {
-	font-variation-settings: 'wght' 700;
+	font-variation-settings: 'wght' var(--title-weight, 700);
 	font-size: 24px;
 	text-decoration: underline;
 	text-underline-offset: 3px;

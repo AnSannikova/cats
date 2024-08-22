@@ -1,6 +1,4 @@
-@import './fonts/fonts.css';
-
-/* Отключаем браузерные дефолтные стили для всех элементов */
+@import '../fonts/fonts.css';
 
 *,
 *::after,

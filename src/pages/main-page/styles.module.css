@@ -8,5 +8,16 @@
 .title {
 	font-size: 34px;
 	line-height: 1.4;
-	font-variation-settings: 'wght' 700;
+	font-variation-settings: 'wght' var(--title-weight, 700);
+}
+
+.loadingWrapper {
+	min-height: 80dvh;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+}
+
+.subtitle {
+	font-size: 26px;
 }

@@ -17,28 +17,30 @@ const InfoCatPage: FC = () => {
 
 	return (
 		<div className={styles.page}>
-			<img
-				className={styles.image}
-				src={cat?.url}
-				alt={`${breed?.name} cat breed`}
-			/>
-			<div className={styles.textWrapper}>
-				<BackButton onClick={onButtonClick} />
-				<h1 className={styles.title}>{breed?.name}</h1>
-				<p>
-					<span className={styles.accent}>Temperament:</span>{' '}
-					{breed?.temperament}
-				</p>
-				<p>
-					<span className={styles.accent}>Country of origin:</span>{' '}
-					{breed?.origin}
-				</p>
-				<p>
-					<span className={styles.accent}>Life expectancy:</span>{' '}
-					{breed?.life_span} years
-				</p>
-				<p>{breed?.description}</p>
-			</div>
+			<BackButton onClick={onButtonClick} />
+			<section className={styles.content}>
+				<img
+					className={styles.image}
+					src={cat?.url}
+					alt={`${breed?.name} cat breed`}
+				/>
+				<div className={styles.textWrapper}>
+					<h1 className={styles.title}>{breed?.name}</h1>
+					<p>
+						<span className={styles.accent}>Temperament:</span>{' '}
+						{breed?.temperament}
+					</p>
+					<p>
+						<span className={styles.accent}>Country of origin:</span>{' '}
+						{breed?.origin}
+					</p>
+					<p>
+						<span className={styles.accent}>Life expectancy:</span>{' '}
+						{breed?.life_span} years
+					</p>
+					<p>{breed?.description}</p>
+				</div>
+			</section>
 		</div>
 	);
 };

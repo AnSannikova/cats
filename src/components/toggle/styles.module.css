@@ -1,13 +1,11 @@
 .toggle {
-	position: relative;
 	display: flex;
 	align-items: center;
 	gap: 10px;
-	cursor: pointer;
 }
 
-.toggle::before {
-	content: '';
+.toggleButton {
+	position: relative;
 	display: block;
 	min-height: 31px;
 	min-width: 50px;
@@ -17,20 +15,23 @@
 	cursor: pointer;
 }
 
-.notChecked .toggle::before {
-	background-color: #ece5f0;
+.notChecked {
+	background-color: #cfcfcf;
 }
 
-.checked .toggle::before {
-	background-color: #91d8d3;
+.checked {
+	background-color: var(--accent-light-color, #91d8d3);
 }
 
-.toggle::after {
+.toggleButton:disabled {
+	background-color: #ebebeb;
+}
+
+.toggleButton::after {
 	content: '';
 	position: absolute;
-	left: 2px;
-	top: 2px;
-	bottom: 2px;
+	left: 1px;
+	top: 1px;
 	width: 27px;
 	height: 27px;
 	border-radius: 50%;
@@ -40,10 +41,6 @@
 	box-shadow: 0 0 2px rgba(0, 0, 0, 0.2), 0 0 5px rgba(0, 0, 0, 0.05);
 }
 
-.notChecked .toggle::after {
-	margin-left: 0;
-}
-
-.checked .toggle::after {
+.checked::after {
 	margin-left: 19px;
 }

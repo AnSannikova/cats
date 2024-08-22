@@ -1,4 +1,4 @@
-import { FC } from 'react';
+import { FC, memo } from 'react';
 import { TCard } from './types';
 import styles from './styles.module.css';
 import { Link } from 'react-router-dom';
@@ -7,7 +7,7 @@ import { useDispatch } from '../../services/store';
 import { likeItem, removeItem } from '../../services/cats-slice';
 import RemoveButton from '../svg-buttons/remove-button';
 
-const Card: FC<TCard> = ({ id, name, imgSrc, description, isLike }) => {
+const Card: FC<TCard> = memo(({ id, name, imgSrc, description, isLike }) => {
 	const dispatch = useDispatch();
 
 	const onLikeButtonClick = () => {
@@ -41,6 +41,6 @@ const Card: FC<TCard> = ({ id, name, imgSrc, description, isLike }) => {
 			</div>
 		</article>
 	);
-};
+});
 
 export default Card;

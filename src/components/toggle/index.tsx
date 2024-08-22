@@ -1,21 +1,18 @@
-import { FC, useState } from 'react';
+import { FC } from 'react';
 import styles from './styles.module.css';
+import { TToggle } from './types';
 
-const Toggle: FC = () => {
-	const [isChecked, setIsChecked] = useState(false);
-	const onClick = () => {
-		setIsChecked(!isChecked);
-	};
-	return (
-		<div
+const Toggle: FC<TToggle> = ({ disabled, isChecked, onClick }) => (
+	<div className={styles.toggle}>
+		<button
+			disabled={disabled}
 			onClick={onClick}
-			className={`${styles.toggle} ${
+			className={`${styles.toggleButton} ${
 				isChecked ? styles.checked : styles.notChecked
 			}`}
-		>
-			<span>Only liked</span>
-		</div>
-	);
-};
+		></button>
+		<span>Only liked</span>
+	</div>
+);
 
 export default Toggle;

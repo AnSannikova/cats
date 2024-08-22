@@ -1,0 +1,9 @@
+:root {
+	--accent-dark-color: #292f36;
+	--accent-light-color: #91d8d3;
+	--main-font: Jost, sans-serif;
+	--main-font-size: 18px;
+	--text-weight: 400;
+	--title-weight: 700;
+	--box-shadow: 0px 1px 10px 4px rgba(0, 0, 0, 0.2);
+}

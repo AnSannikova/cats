@@ -15,7 +15,7 @@
 }
 
 .button:hover {
-	background-color: #91d8d3;
+	background-color: var(--accent-light-color, #91d8d3);
 	transition: background-color 0.2s ease-in-out;
 }
 

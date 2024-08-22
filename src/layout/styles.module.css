@@ -1,10 +1,12 @@
 .main {
 	max-width: 1600px;
 	margin: 0 auto;
-	padding: 50px;
-	font-family: Jost, sans-serif;
-	font-variation-settings: 'wght' 400;
-	color: #292f36;
+	padding: 5%;
+	font-family: var(--main-font, Jost, sans-serif);
+	font-variation-settings: 'wght' var(--text-weight, 400);
+	color: var(--accent-dark-color, #292f36);
+	font-size: var(--main-font-size, 18px);
+	line-height: 1.2;
 }
 
 .content {
