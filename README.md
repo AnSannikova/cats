@@ -1,5 +1,7 @@
 # Random Cats
 
+![2024-08-22_13-42-55](https://github.com/user-attachments/assets/41e33293-7c4e-40f6-b633-1dc98505b00b)
+
 ## О проекте
 
 **Стек**:  
