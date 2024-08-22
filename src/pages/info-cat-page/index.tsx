@@ -1,5 +1,5 @@
 import { FC } from 'react';
-import { useNavigate, useParams } from 'react-router-dom';
+import { useNavigate, Navigate, useParams } from 'react-router-dom';
 import { useSelector } from '../../services/store';
 import { getCatsSelector } from '../../services/cats-slice';
 import { BackButton, WikiLink } from '../../components';
@@ -14,6 +14,8 @@ const InfoCatPage: FC = () => {
 	const onButtonClick = () => {
 		navigate(-1);
 	};
+
+	if (!cat) return <Navigate replace to="/cats" />;
 
 	return (
 		<div className={styles.page}>
